@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'ecommerce',
     'authentication',
     'products',
-
+    'cart',
+    'order',
+    'address'
 ]
 # Application definition
 
@@ -60,10 +62,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'ecommerce.urls'
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
