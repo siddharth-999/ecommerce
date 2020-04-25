@@ -25,7 +25,8 @@ schema_view = get_swagger_view(title='API Docs')
 urlpatterns = [
     path('admin-login/', admin.site.urls),
     path('auth/', include('authentication.urls')),
-    path('apis/', schema_view,),
+    path('products/',include('products.urls')),
+    path('api/', schema_view),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
